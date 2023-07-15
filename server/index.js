@@ -8,6 +8,8 @@ const { PORT, COOKIE_SESSION_KEY, NODE_ENV } = require("../config");
 const connectDB = require("./dbs/mongoDb");
 // my routes
 const routerConfigration = require("./routes");
+const { notFound, errorHandler } = require("./middlewares/utils");
+const { consoleLogger } = require("./utils/helper");
 
 const app = express();
 
@@ -41,4 +43,10 @@ if (NODE_ENV === "production") {
   );
 }
 
-app.listen(PORT, () => console.log(`Server running  on port ${PORT}`));
+// middleware to act as fallback for all 404 errors
+app.use(notFound);
+
+// configure a custome error handler middleware
+app.use(errorHandler);
+
+app.listen(PORT, () => consoleLogger(`Server running  on port ${PORT}`));
