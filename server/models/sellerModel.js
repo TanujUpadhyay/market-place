@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-import bcrypt from "bcryptjs";
+const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
 
 const SellerSchema = mongoose.Schema(
   {
@@ -86,4 +86,4 @@ SellerSchema.pre("save", async function (next) {
 
 const Seller = mongoose.model("Seller", SellerSchema);
 
-export default Seller;
+module.exports = Seller;

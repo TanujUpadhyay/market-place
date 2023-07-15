@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-import { PRODUCT_STATUS } from "../../commonConts";
+const mongoose = require("mongoose");
+const { PRODUCT_STATUS } = require("../../commonConts");
 
 // a schema for stroing reviews for each product
 const reviewsSchema = mongoose.Schema(
@@ -93,4 +93,4 @@ const productSchema = mongoose.Schema(
 
 const Product = mongoose.model("Product", productSchema);
 
-export default Product;
+module.exports = Product;

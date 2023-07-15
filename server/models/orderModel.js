@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-import { ORDER_STATUS } from "../../commonConts";
+const mongoose = require("mongoose");
+const { ORDER_STATUS } = require("../../commonConts");
 
 const orderSchema = mongoose.Schema(
   {
@@ -90,4 +90,4 @@ const orderSchema = mongoose.Schema(
 
 const Order = mongoose.model("Order", orderSchema);
 
-export default Order;
+module.exports = Order;
