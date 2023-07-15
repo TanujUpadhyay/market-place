@@ -1,0 +1,27 @@
+{
+  "name": "market-place",
+  "version": "1.0.0",
+  "description": "This is a website for customer who wants to buy something and seller who wants to sell there products and an admin who can controller sellers and customer.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TanujUpadhyay/market-place.git"
+  },
+  "keywords": [
+    "mern",
+    "stack",
+    "web",
+    "application",
+    "market",
+    "place"
+  ],
+  "author": "tu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TanujUpadhyay/market-place/issues"
+  },
+  "homepage": "https://github.com/TanujUpadhyay/market-place#readme"
+}
