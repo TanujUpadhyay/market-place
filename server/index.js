@@ -6,6 +6,12 @@ const compression = require("compression");
 const path = require("path");
 const { PORT } = require("../config");
 const connectDB = require("./dbs/mongoDb");
+// my routes
+const authRoutes = require("./routes/auth");
+const userRoutes = require("./routes/user");
+const categoryRoutes = require("./routes/category");
+const productRoutes = require("./routes/product");
+const orderRouters = require("./routes/order");
 
 const app = express();
 
@@ -26,6 +32,13 @@ app.use(
     keys: [process.env.COOKIE_SESSION_KEY],
   })
 );
+
+// configure all the routes
+app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/categorys", categoryRoutes);
+app.use("/api/products", productRoutes);
+app.use("/api/orders", orderRouters);
 
 // To prepare for deployment
 if (process.env.NODE_ENV === "production") {
