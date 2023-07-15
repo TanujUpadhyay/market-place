@@ -48,6 +48,11 @@ const SellerSchema = mongoose.Schema(
       required: true,
       default: false,
     },
+    isRejectedByAdmin: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
     products: [
       {
         type: mongoose.Schema.Types.ObjectId,
