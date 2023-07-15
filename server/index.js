@@ -4,7 +4,7 @@ const cors = require("cors");
 const cookieSession = require("cookie-session");
 const compression = require("compression");
 const path = require("path");
-const { PORT } = require("../config");
+const { PORT, COOKIE_SESSION_KEY, NODE_ENV } = require("../config");
 const connectDB = require("./dbs/mongoDb");
 // my routes
 const routerConfigration = require("./routes");
@@ -12,7 +12,7 @@ const routerConfigration = require("./routes");
 const app = express();
 
 // use morgan in development mode
-if (process.env.NODE_ENV === "development") app.use(morgan("dev"));
+if (NODE_ENV === "development") app.use(morgan("dev"));
 
 // connect to the mongoDB database
 connectDB();
@@ -25,7 +25,7 @@ app.use(compression()); // to use gzip
 app.use(
   cookieSession({
     maxAge: 1000 * 60 * 60 * 24, // 1 day
-    keys: [process.env.COOKIE_SESSION_KEY],
+    keys: [COOKIE_SESSION_KEY],
   })
 );
 
@@ -33,7 +33,7 @@ app.use(
 routerConfigration(app);
 
 // To prepare for deployment
-if (process.env.NODE_ENV === "production") {
+if (NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/client/build")));
 
   app.use("*", (req, res) =>
